@@ -1,33 +1,10 @@
-import React, { useRef, useEffect, useState } from 'react';
+import React from 'react';
 import styled from 'styled-components';
 import { ReactComponent as ImageProfile } from '../../assets/ultimo.svg';
 import Slide from 'react-reveal/Slide';
 import Fade from 'react-reveal/Fade';
 
 const About = () => {
-  const refRef = useRef(null);
-
-  const [show, doShow] = useState({
-    itOne: false,
-
-    itTwo: false,
-
-    itThree: false,
-  });
-
-  const onScroll = () => {
-    const topPos = refRef.current.getBoundingClientRect().top;
-    const scrollPos = window.scrollY + window.innerHeight;
-
-    if (topPos < scrollPos) {
-      doShow({ ...show, itOne: true, itTwo: true });
-    }
-  };
-
-  useEffect(() => {
-    window.addEventListener('scroll', onScroll);
-    return () => window.removeEventListener('scroll', onScroll);
-  }, []);
 
   return (
     <MainContainer>

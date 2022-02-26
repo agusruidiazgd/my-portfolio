@@ -12,19 +12,19 @@ const Main = () => {
       itThree: false,
     });
 
-    const onScroll = () => {
+
+    useEffect(() => {
+      const onScroll = () => {
         const topPos = refRef.current.getBoundingClientRect().top;
         const scrollPos = window.scrollY + window.innerHeight;
 
         if (topPos < scrollPos) {
-            doShow({...show, itOne: true, itTwo: true});
+          doShow({ ...show, itOne: true, itTwo: true });
         }
-    };
-
-    useEffect(() => {
-        window.addEventListener('scroll', onScroll);
-        return () => window.removeEventListener('scroll', onScroll);
-    }, []);
+      };
+      window.addEventListener('scroll', onScroll);
+      return () => window.removeEventListener('scroll', onScroll);
+    }, [show]);
 
   return (
     <MainContainer>
