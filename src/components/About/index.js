@@ -159,27 +159,6 @@ const Text = styled.p`
   font-size: 18px;
 `;
 
-const TextCard = styled.p`
-  font-family: 'Frank Ruhl Libre', serif;
-  font-size: 36px;
-  text-align: left;
-  line-height: 1.5;
-  transition: all 2s;
-  transition-delay: 1.3s;
-  color: ${({ animate }) => (animate ? '#ffff' : 'transparent')};
-`;
-
-const ThinText = styled.p`
-  font-family: 'Poppins', sans-serif;
-  letter-spacing: 3px;
-  font-weight: 200;
-  font-size: 24px;
-  text-align: left;
-  line-height: 1.5;
-  transition: all 2s;
-  transition-delay: 1.3s;
-  color: ${({ animate }) => (animate ? '#ffff' : 'transparent')};
-`;
 
 const Image = styled.div`
   display: flex;

@@ -17,7 +17,7 @@ const NavBar = () => {
       <MainLogo />
       <Nav>
         {links.map((link) => (
-          <Link to={link.path}>{link.name}</Link>
+          <Link key={link} to={link.path}>{link.name}</Link>
         ))}
       </Nav>
     </HeaderNav>
