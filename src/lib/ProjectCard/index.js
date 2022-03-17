@@ -3,43 +3,51 @@ import styled from 'styled-components';
 import { animated } from 'react-spring';
 import { use3dEffect } from 'use-3d-effect';
 
-const ProjectCard = ({image, title, subtitle, year, width}) => {
+const ProjectCard = ({
+  image,
+  title,
+  subtitle,
+  year,
+  company,
+  styleProject,
+  setShowDetails,
+  chooseProject
+}) => {
   const ref = React.useRef(null);
   const { style, ...mouseHandlers } = use3dEffect(ref);
-
-
+  const handleShowDetails = () => {chooseProject(); setShowDetails(true);}
   return (
     <animated.div
       ref={ref}
       style={{
         background: '#61dafb',
-        width: width,
+        width: styleProject.width,
         padding: '0',
         margin: '40px',
         ...style,
       }}
       {...mouseHandlers}
     >
-      <Card>
+      <Card onClick={() => handleShowDetails()}>
         <ImageBackground
           class="img"
-          urlImage="https://images.unsplash.com/photo-1507238691740-187a5b1d37b8?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2710&q=80"
+          color={styleProject.textHover}
+          urlImage={image}
         >
-          <Text>2020</Text>
-          <TitleCard>Titulo del Proyecto</TitleCard>
-          <Text>Subtitulo del proyecto</Text>
-          <Text>2020</Text>
+          <Text>{year}</Text>
+          <TitleCard>{title}</TitleCard>
+          <Text>{subtitle}</Text>
+          <Text>{company}</Text>
         </ImageBackground>
       </Card>
     </animated.div>
   );
-}
+};
 
 export default ProjectCard
 
 const Card = styled.div`
   position: relative;
-
   display: flex;
   align-items: center;
   justify-content: center;
@@ -47,16 +55,23 @@ const Card = styled.div`
   height: 70vh;
   background: #ee0b72;
   background: linear-gradient(90deg, #ee0b72 20%, rgba(255, 105, 0, 1) 80%);
+  border-radius: 3px;
   z-index: 0;
   transition: all 0.5s ease-in-out;
-
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px,
+    rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
+  cursor: pointer;
 `;
 
 const ImageBackground = styled.div`
   width: 100%;
   height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  flex-direction: column;
   background-image: url(${({ urlImage }) => urlImage});
-  background-position: bottom; /* Center the image */
+  background-position: center; /* Center the image */
   background-repeat: no-repeat; /* Do not repeat the image */
   background-size: cover;
   box-sizing: border-box;
@@ -66,11 +81,14 @@ const ImageBackground = styled.div`
     width: 95%;
     height: 95%;
   }
-  &:hover p{
+  &:hover p {
     color: white;
+    background-color: #262626;
   }
   &:hover h2 {
-    color: white;
+    color: ${({ color }) => color};
+    background-color: ${({ color }) =>
+      color === '#FFFFFF' ? '#262626' : '#FFFFFF'};
   }
 `;
 
@@ -79,9 +97,11 @@ const TitleCard = styled.h2`
   line-height: 2;
   font-family: 'Frank Ruhl Libre', serif;
   color: transparent;
-  font-size: 32px;
+  font-size: 48px;
   z-index: 2;
+  padding: 0 20px;
   transition: all 0.5s ease-in-out;
+  background-color: transparent;
 `;
 
 const Text = styled.p`
@@ -90,6 +110,7 @@ const Text = styled.p`
   font-family: 'Poppins', sans-serif;
   color: transparent;
   font-size: 18px;
+  padding: 0 20px;
   z-index: 2;
   transition: all 0.5s ease-in-out;
 `;

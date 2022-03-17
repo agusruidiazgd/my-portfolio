@@ -51,6 +51,7 @@ const Nav = styled.nav`
     font-weight: 600;
     font-family: 'Poppins', sans-serif;
     font-size: 12px;
+    letter-spacing: 0.1rem;
     padding: 5px 20px;
     position: relative;
     overflow: hidden;

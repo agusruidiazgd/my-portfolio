@@ -16,18 +16,16 @@ const About = () => {
           </div>
           <Fade bottom>
             <Text>
-              Soy una desarrolladora frontend Argentina que actualmente estoy
-              viviendo en España. Me apasionan los sitios con diseños
-              vanguardistas o coloridos y proyectos relacionados con la salud y
-              bienestar.
+              Argentinian frontend developer currently living in Spain.
+              Passionate about sites with avant-garde or colorful designs
+              and projects related to health and wellness.
             </Text>
             <Text>
-              En mi tiempo libre me gusta viajar, conocer lugares nuevos y
-              aprender nuevas tecnologias.
+              In my free time I like to travel, see new places and learn new
+              technologies.
             </Text>
             <Text>
-              Trabaje en proyectos de plataformas para laboratorios,
-              telemedicina y NFT.
+              Work on platform projects for laboratories, telemedicine and NFT.
             </Text>
           </Fade>
         </div>
@@ -44,8 +42,7 @@ const About = () => {
           <TechnologyCard></TechnologyCard>
         </Slide>
         <Slide right>
-          <ImageTechnology urlImage="https://images.unsplash.com/photo-1507238691740-187a5b1d37b8?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2710&q=80"/>
-    
+          <ImageTechnology urlImage="https://images.unsplash.com/photo-1507238691740-187a5b1d37b8?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2710&q=80" />
         </Slide>
       </TecnologySection>
     </MainContainer>
