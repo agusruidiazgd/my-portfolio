@@ -30,7 +30,7 @@ const ProjectCard = ({
     >
       <Card onClick={() => handleShowDetails()}>
         <ImageBackground
-          class="img"
+          className="img"
           color={styleProject.textHover}
           urlImage={image}
         >

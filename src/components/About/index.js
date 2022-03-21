@@ -1,6 +1,5 @@
 import React from 'react';
 import styled from 'styled-components';
-import { ReactComponent as ImageProfile } from '../../assets/ultimo.svg';
 import Slide from 'react-reveal/Slide';
 import Fade from 'react-reveal/Fade';
 import profile from '../../assets/img-progile1.png';
@@ -11,7 +10,7 @@ const About = () => {
   return (
     <MainContainer>
       <Header>
-        <div class="profile">
+        <div className="profile">
           <Fade top>
             <Image>
               {/* <ImageProfile width="600" height="600" /> */}
@@ -20,8 +19,8 @@ const About = () => {
           </Fade>
         </div>
 
-        <div class="text-container">
-          <div class="title-container">
+        <div className="text-container">
+          <div className="title-container">
             <Fade top>
               <Title>Agustina Nahir Ruidiaz</Title>
               <SubTitle>Fan of animations and usability.</SubTitle>
@@ -54,7 +53,7 @@ const About = () => {
         </Slide>
         <Slide right>
           {/* <ImageTechnology urlImage={techStack} /> */}
-          <img src={techStack} class="tech-stack" alt="tech-stack" />
+          <img src={techStack} className="tech-stack" alt="tech-stack" />
         </Slide>
       </TecnologySection>
     </MainContainer>
@@ -91,21 +90,6 @@ const Header = styled.section`
   }
 `;
 
-const ImageTechnology = styled.div`
-background-image: url(${({ urlImage }) => urlImage});
-  background-position: center; /* Center the image */
-  background-repeat: no-repeat; /* Do not repeat the image */
-  background-size: cover;
-  box-sizing: border-box;
-  margin-left: -100px;
-  margin-top: 30px;
-  border-radius: 3px;
-  height: 750px;
-  width: 900px;
-  background-color: #262626;
-  background-blend-mode: screen;
-  z-index:-1;
-`;
 
 const TecnologySection = styled.section`
   display: flex;

@@ -26,7 +26,7 @@ const ProjectModal = ({
           {project[0].images.slice(0, 2).map((image, index) => (
             <img
               key={`img-project-${index}`}
-              class="img-1"
+              className="img-1"
               src={image}
               alt="Profile"
             />
@@ -44,7 +44,7 @@ const ProjectModal = ({
           {project[0].images.slice(2, 4).map((image, index) => (
             <img
               key={`img-project-${index}`}
-              class="img-2"
+              className="img-2"
               src={image}
               alt="Profile"
             />
@@ -54,7 +54,7 @@ const ProjectModal = ({
           {project[0].images.slice(4, 5).map((image, index) => (
             <img
               key={`img-project-${index}`}
-              class="img-1"
+              className="img-1"
               src={image}
               alt="Profile"
             />
@@ -64,7 +64,7 @@ const ProjectModal = ({
           {project[0].images.slice(5, 6).map((image, index) => (
             <img
               key={`img-project-${index}`}
-              class="img-1"
+              className="img-1"
               src={image}
               alt="Profile"
             />

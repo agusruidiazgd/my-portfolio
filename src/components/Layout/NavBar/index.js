@@ -16,8 +16,8 @@ const NavBar = () => {
     <HeaderNav>
       <MainLogo />
       <Nav>
-        {links.map((link) => (
-          <Link key={link} to={link.path}>{link.name}</Link>
+        {links.map((link, index) => (
+          <Link key={`link-${index}`} to={link.path}>{link.name}</Link>
         ))}
       </Nav>
     </HeaderNav>

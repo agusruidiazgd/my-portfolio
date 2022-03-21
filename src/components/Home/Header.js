@@ -102,10 +102,10 @@ const Header = () => {
         Hello, I am a front-end developer in Spain. Welcome to my portfolio!
       </p>
       <Title>
-        <h1 class="name">Agus</h1>
-        <h1 class="last-name">Ruidiaz</h1>
+        <h1 className="name">Agus</h1>
+        <h1 className="last-name">Ruidiaz</h1>
       </Title>
-      <HeaderImage class="image" />
+      <HeaderImage className="image" />
     </ContainerHeader>
   );
 }
