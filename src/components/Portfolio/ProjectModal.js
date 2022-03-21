@@ -38,6 +38,7 @@ const ProjectModal = ({
           <Text>{project[0].description}</Text>
           <Subtitle>Technologies:</Subtitle>
           <Text>{project[0].technologies}</Text>
+          <LinkProject href={project[0].link}>Link</LinkProject>
         </Details>
         <ImgWrapper width="100%">
           {project[0].images.slice(2, 4).map((image, index) => (
@@ -140,6 +141,22 @@ const Text = styled.p`
   font-family: 'Poppins', sans-serif;
   font-size: 16px;
   font-weight: 300;
+`;
+
+const LinkProject = styled.a`
+  text-transform: uppercase;
+  font-family: 'Poppins', sans-serif;
+  font-size: 1rem;
+  font-weight: 300;
+  letter-spacing: 0.1rem;
+  text-decoration: none;
+  width: 150px;
+  box-sizing: border-box;
+  margin-top: 30px; 
+  padding: 5px 50px;
+  border-radius: 3px;
+  border: 1px solid #ee0b72;
+  cursor: pointer;
 `;
 
 const Subtitle = styled.p`

@@ -25,6 +25,19 @@ const Btn = styled.button`
   background-color: ${({ outline, color }) => (outline ? 'white' : color)};
   border: ${({ outline, color }) => (outline ? `1px solid ${color}` : 'none')};
   cursor: pointer;
+  &::before {
+    content: ' ';
+    position: absolute;
+    left: 0;
+    top: 0;
+    background-color: #fff200;
+    height: 100%;
+    width: 100%;
+    z-index: -1;
+    transform-origin: bottom left;
+    transform: rotate(-90deg);
+    transition: transform 1s;
+  }
 `;
 const Text = styled.p`
   padding: 0;
