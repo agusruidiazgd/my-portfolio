@@ -2,7 +2,7 @@ import React from 'react'
 import Modal from '../../lib/Modal';
 import styled from 'styled-components';
 import { projects } from '../../constants/portfolio';
-
+import { devices } from '../../constants/devices.js';
 
 const ProjectModal = ({
   showModal,
@@ -81,46 +81,67 @@ const ProjectDetails = styled.div`
   display: flex;
   align-items: flex-start;
   justify-content: flex-start;
-  flex-wrap:wrap;
+  flex-wrap: wrap;
+  flex-direction: column;
+  @media ${devices.laptop} {
+    flex-direction: row;
+  }
   .img-1 {
-    width: 40vw;
+    width: 70vw;
     box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px,
       rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
     margin: 10px;
+    @media ${devices.laptop} {
+      width: 40vw;
+    }
   }
   .img-2 {
     width: 100%;
     box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px,
       rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
-    margin: 10px;
+    margin: 10px 0px;
+    @media ${devices.laptop} {
+      margin: 10px;
+    }
   }
 `;
 
 const ImgWrapper = styled.div`
-  width: ${({width})=> width};
+  width: ${({ width }) => width};
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
-  justify-content: flex-start;
+    align-items: flex-start;
+    justify-content: flex-start;
+
 `;
 
 const Details = styled.div`
-    width: 40%;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
+  width: 90%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+
+  @media ${devices.laptop} {
     margin-left: 90px;
+    width: 40%;
+  }
 `;
 
 const Title = styled.h2`
   position: relative;
   color: #262626;
   font-family: 'Frank Ruhl Libre', serif;
-  font-size: 56px;
+  font-size: 36px;
   font-weight: 900;
   text-align: left;
   margin: 0px;
   padding: 5px 0px;
+  @media ${devices.tablet} {
+    font-size: 48px;
+  }
+  @media ${devices.laptop} {
+    font-size: 56px;
+  }
 `;
 
 const TextCompany = styled.p`

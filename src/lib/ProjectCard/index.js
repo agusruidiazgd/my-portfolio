@@ -2,6 +2,7 @@ import React from 'react'
 import styled from 'styled-components';
 import { animated } from 'react-spring';
 import { use3dEffect } from 'use-3d-effect';
+import { devices } from '../../constants/devices.js';
 
 const ProjectCard = ({
   image,
@@ -24,6 +25,10 @@ const ProjectCard = ({
         width: styleProject.width,
         padding: '0',
         margin: '40px',
+        '@media (min-width:768px)': {
+          margin: '40px',
+          width: styleProject.width,
+        },
         ...style,
       }}
       {...mouseHandlers}
@@ -52,7 +57,7 @@ const Card = styled.div`
   align-items: center;
   justify-content: center;
   width: 100%;
-  height: 70vh;
+  height: 30vh;
   background: #ee0b72;
   background: linear-gradient(90deg, #ee0b72 20%, rgba(255, 105, 0, 1) 80%);
   border-radius: 3px;
@@ -61,6 +66,12 @@ const Card = styled.div`
   box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px,
     rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
   cursor: pointer;
+  @media ${devices.tablet} {
+    height: 40vh;
+  }
+  @media ${devices.laptop} {
+    height: 60vh;
+  }
 `;
 
 const ImageBackground = styled.div`
@@ -97,20 +108,33 @@ const TitleCard = styled.h2`
   line-height: 2;
   font-family: 'Frank Ruhl Libre', serif;
   color: transparent;
-  font-size: 48px;
+  font-size: 24px;
   z-index: 2;
   padding: 0 20px;
   transition: all 0.5s ease-in-out;
   background-color: transparent;
+  @media ${devices.tablet} {
+    font-size: 36px;
+  }
+  @media ${devices.laptop} {
+    font-size: 48px;
+  }
 `;
 
 const Text = styled.p`
   text-align: center;
-  line-height: 2;
+  line-height: 1.5;
   font-family: 'Poppins', sans-serif;
   color: transparent;
-  font-size: 18px;
+  font-size: 14px;
   padding: 0 20px;
   z-index: 2;
   transition: all 0.5s ease-in-out;
+  @media ${devices.tablet} {
+    font-size: 16px;
+    line-height: 2;
+  }
+  @media ${devices.laptop} {
+    font-size: 18px;
+  }
 `;

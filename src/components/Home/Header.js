@@ -2,6 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 import { ReactComponent as HeaderImage } from '../../assets/header_image.svg';
 import Particles from 'react-tsparticles';
+import { devices } from '../../constants/devices.js';
 
 const Header = () => {
    const particlesInit = (main) => {
@@ -43,8 +44,8 @@ const Header = () => {
               bubble: {
                 distance: 400,
                 duration: 2,
-                opacity: 0.8,
-                size: 40,
+                opacity: 1,
+                size: 50,
               },
               push: {
                 quantity: 4,
@@ -57,14 +58,14 @@ const Header = () => {
           },
           particles: {
             color: {
-              value: 'rgba(255, 105, 0, 1)',
+              value: ['rgba(255, 105, 0, 1)', '#00C897'],
             },
             links: {
               color: '#ffffff',
               distance: 150,
               enable: false,
-              opacity: 0.1,
-              width: 1,
+              opacity: 0.5,
+              width: 2,
             },
             collisions: {
               enable: true,
@@ -82,10 +83,10 @@ const Header = () => {
                 enable: true,
                 area: 800,
               },
-              value: 20,
+              value: 10,
             },
             opacity: {
-              value: 0.3,
+              value: 0.4,
             },
             shape: {
               type: 'circle',
@@ -117,14 +118,29 @@ const ContainerHeader = styled.header`
   box-sizing: border-box;
   text-align: center;
   padding: 0px 30px;
-  margin-top: 30px;
+  margin-top: 0px;
   position: relative;
   height: 90vh;
+  @media ${devices.tablet} {
+    margin-top: 30px;
+    height: 90vh;
+  }
+  @media ${devices.laptop} {
+  }
   .image {
     position: absolute;
-    right: 5vw;
-    bottom: 10vh;
-    width: 750px;
+    right: 10vw;
+    width: 300px;
+    @media ${devices.tablet} {
+      bottom: 20vh;
+      right: 25vw;
+      width: 550px;
+    }
+    @media ${devices.laptop} {
+      bottom: 10vh;
+      right: 5vw;
+      width: 750px;
+    }
   }
   p {
     position: absolute;
@@ -133,9 +149,19 @@ const ContainerHeader = styled.header`
     text-align: left;
     line-height: 2;
     font-family: 'Poppins', sans-serif;
-    font-size: 18px;
-    top: 10vh;
-    width: 400px;
+    font-size: 14px;
+    top: 5vh;
+    width: 300px;
+    @media ${devices.tablet} {
+      top: 5vh;
+      width: 400px;
+      font-size: 18px;
+    }
+    @media ${devices.laptop} {
+      top: 10vh;
+      width: 400px;
+      font-size: 18px;
+    }
     &::before {
       content: '';
       width: 30%;
@@ -148,8 +174,8 @@ const ContainerHeader = styled.header`
       transition: all 0.5s;
     }
   }
-  .particles{
-    z-index:-1;
+  .particles {
+    z-index: -1;
   }
 `;
 
@@ -163,12 +189,18 @@ const Title = styled.div`
   position: absolute;
   bottom: 5vh;
   left: 10vw;
-  
+  @media ${devices.tablet} {
+  }
+  @media ${devices.laptop} {
+    bottom: 5vh;
+    left: 10vw;
+  }
+
   h1 {
     padding: 0px;
     margin: 0px;
     font-weight: 900;
-    font-size: 160px;
+    font-size: 70px;
     font-family: 'Frank Ruhl Libre', serif;
     background: #ee0b72;
     background: -webkit-linear-gradient(
@@ -178,12 +210,26 @@ const Title = styled.div`
     );
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
+    @media ${devices.tablet} {
+      font-size: 120px;
+    }
+    @media ${devices.laptop} {
+      font-size: 160px;
+    }
   }
   h1.name {
     margin: 0px;
   }
   h1.last-name {
-    margin-top: -65px;
-    font-size: 170px;
+    margin-top: -35px;
+    font-size: 80px;
+    @media ${devices.tablet} {
+      margin-top: -55px;
+      font-size: 130px;
+    }
+    @media ${devices.laptop} {
+      margin-top: -65px;
+      font-size: 170px;
+    }
   }
 `;
