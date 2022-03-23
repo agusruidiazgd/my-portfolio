@@ -1,14 +1,16 @@
-import React, {useState} from 'react'
+import React, { useState } from 'react';
 import PortfolioHeader from './PortfolioHeader'
 import ProjectCard from '../../lib/ProjectCard'
 import ProjectModal from './ProjectModal';
 import styled from 'styled-components';
 import { projects } from '../../constants/portfolio';
 
+
 const Portfolio = () => {
   const [showModal, setShowModal]=useState(false)
   const [projectToShow, setProjectToShow]=useState(2)
   const scrollPos = window.scrollY + window.innerHeight/2;
+  
   return (
     <section>
       {showModal && (
@@ -31,7 +33,7 @@ const Portfolio = () => {
             subtitle={project.subtitle}
             year={project.year}
             company={project.company}
-            chooseProject={()=> setProjectToShow(project.id)}
+            chooseProject={() => setProjectToShow(project.id)}
           />
         ))}
       </Wrapper>

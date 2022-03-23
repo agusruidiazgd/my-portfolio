@@ -13,8 +13,6 @@ const ProjectModal = ({
     const showProjectDetails = () =>
       projects.filter((project) => project.id === projectToShow);
     let project = showProjectDetails();
-    console.log(project[0].images.slice(0, 2));
-
   return (
     <Modal
       show={showModal}

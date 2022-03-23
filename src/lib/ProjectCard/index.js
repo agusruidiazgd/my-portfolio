@@ -81,7 +81,11 @@ export default ProjectCard
 const MobileCard = styled.div`
   width: ${({ widthCard }) => widthCard};
   padding: 0;
+  height: 40vh;
   margin: 20px 0px;
+  @media ${devices.mobileM} {
+    height: 30vh;
+  }
 `;
 
 const Card = styled.div`
@@ -90,7 +94,7 @@ const Card = styled.div`
   align-items: center;
   justify-content: center;
   width: 100%;
-  height: 30vh;
+  height: 40vh;
   background: #ee0b72;
   background: linear-gradient(90deg, #ee0b72 20%, rgba(255, 105, 0, 1) 80%);
   border-radius: 3px;
@@ -99,6 +103,9 @@ const Card = styled.div`
   box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px,
     rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
   cursor: pointer;
+  @media ${devices.mobileM} {
+    height: 30vh;
+  }
   @media ${devices.tablet} {
     height: 40vh;
   }
