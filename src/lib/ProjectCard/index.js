@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useRef, useEffect, useState } from 'react';
 import styled from 'styled-components';
 import { animated } from 'react-spring';
 import { use3dEffect } from 'use-3d-effect';
@@ -14,9 +14,40 @@ const ProjectCard = ({
   setShowDetails,
   chooseProject
 }) => {
-  const ref = React.useRef(null);
+  const ref = useRef(null);
+  const [isMobile, setIsMobile] = useState(null)
   const { style, ...mouseHandlers } = use3dEffect(ref);
   const handleShowDetails = () => {chooseProject(); setShowDetails(true);}
+  
+
+  useEffect(() => {
+    const param = window.matchMedia(
+      'only screen and (max-width: 760px)'
+    ).matches;
+    setIsMobile(param);
+  }, []);
+
+  if (isMobile) {
+    return (
+      <MobileCard
+        ref={ref}
+        widthCard={'90vw'}
+        >
+        <Card onClick={() => handleShowDetails()}>
+          <ImageBackground
+            className="img"
+            color={styleProject.textHover}
+            urlImage={image}
+          >
+            <Text>{year}</Text>
+            <TitleCard>{title}</TitleCard>
+            <Text>{subtitle}</Text>
+            <Text>{company}</Text>
+          </ImageBackground>
+        </Card>
+      </MobileCard>
+    );
+  }
   return (
     <animated.div
       ref={ref}
@@ -25,10 +56,6 @@ const ProjectCard = ({
         width: styleProject.width,
         padding: '0',
         margin: '40px',
-        '@media (min-width:768px)': {
-          margin: '40px',
-          width: styleProject.width,
-        },
         ...style,
       }}
       {...mouseHandlers}
@@ -50,6 +77,12 @@ const ProjectCard = ({
 };
 
 export default ProjectCard
+
+const MobileCard = styled.div`
+  width: ${({ widthCard }) => widthCard};
+  padding: 0;
+  margin: 20px 0px;
+`;
 
 const Card = styled.div`
   position: relative;
