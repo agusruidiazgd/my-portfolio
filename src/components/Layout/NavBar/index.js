@@ -4,9 +4,8 @@ import { Link } from 'react-router-dom';
 import { ReactComponent as MainLogo } from '../../../assets/logo-50x50.svg';
 
 const links = [
-  { name: 'HOME', path: '/' },
-  { name: 'ABOUT ME', path: '/about' },
   { name: 'PORTFOLIO', path: '/portfolio' },
+  { name: 'ABOUT ME', path: '/about' },
   { name: 'CONTACT', path: '/contact' },
 ];
 
@@ -14,10 +13,14 @@ const NavBar = () => {
   
   return (
     <HeaderNav>
-      <MainLogo />
+      <Link to="/">
+        <MainLogo />
+      </Link>
       <Nav>
         {links.map((link, index) => (
-          <Link key={`link-${index}`} to={link.path}>{link.name}</Link>
+          <Link key={`link-${index}`} to={link.path}>
+            {link.name}
+          </Link>
         ))}
       </Nav>
     </HeaderNav>
@@ -29,6 +32,7 @@ export default NavBar
 const HeaderNav = styled.header`
   position: sticky;
   top: 0;
+  background-color:#FFFFFF;
   width: 100%;
   box-sizing: border-box;
   text-align: center;

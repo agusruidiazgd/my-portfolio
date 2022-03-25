@@ -3,6 +3,12 @@ import styled from 'styled-components';
 import BtnPrimary from '../../lib/ButtonPrimary'
   import { useOnClickOutside } from '../../hooks/useOnClickOutside';
   import { Link } from 'react-router-dom';
+  import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+  import {
+    solid,
+    regular,
+    brands,
+  } from '@fortawesome/fontawesome-svg-core/import.macro'; 
 
 const Modal = ({ handleClose, show, children, scrollPos }) => {
   const ref = useRef();
@@ -20,7 +26,11 @@ const Modal = ({ handleClose, show, children, scrollPos }) => {
               outline
               style={{ width: '160px', color: ' #ee0b72' }}
             >
-              CONTACT ME :)
+              CONTACT ME{' '}
+              <FontAwesomeIcon
+                className="icon"
+                icon={solid('arrow-right-long')}
+              />
             </BtnPrimary>
           </Link>
         </FooterModal>
@@ -79,4 +89,5 @@ const FooterModal = styled.footer`
     align-items: center;
     justify-content: center;
     display: flex;
+    padding: 20px 0;
 `;

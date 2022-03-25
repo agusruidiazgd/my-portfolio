@@ -3,6 +3,7 @@ import styled from 'styled-components'
 import { ReactComponent as HeaderImage } from '../../assets/header_image.svg';
 import Particles from 'react-tsparticles';
 import { devices } from '../../constants/devices.js';
+import Fade from 'react-reveal/Fade';
 
 const Header = () => {
    const particlesInit = (main) => {
@@ -99,13 +100,19 @@ const Header = () => {
           detectRetina: true,
         }}
       />
-      <p>
-        Hello, I am a front-end developer in Spain. Welcome to my portfolio!
-      </p>
+      <Fade top>
+        <p>
+          Hello, I am a front-end developer in Italy. Welcome to my portfolio!
+        </p>
+      </Fade>
+
       <Title>
-        <h1 className="name">Agus</h1>
-        <h1 className="last-name">Ruidiaz</h1>
+        <Fade bottom>
+          <h1 className="name">Agus</h1>
+          <h1 className="last-name">Ruidiaz</h1>
+        </Fade>
       </Title>
+
       <HeaderImage className="image" />
     </ContainerHeader>
   );

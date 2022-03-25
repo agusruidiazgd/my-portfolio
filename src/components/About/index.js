@@ -29,7 +29,7 @@ const About = () => {
           </div>
           <Fade bottom>
             <Text>
-              Hi there! <br/> I’m Agustina a Front End engineer originally from
+              Hi there! <br /> I’m Agustina a Front End engineer originally from
               Argentina (missing the steaks), avid traveler and geek (MCU and
               Anime are my cup of tea)
             </Text>
@@ -41,8 +41,15 @@ const About = () => {
               society.
             </Text>
             <Text>
-              Feel free to reach out at **agusruidiaz@hotmail.com** to connect
-              and start building that dream landing/design!
+              Feel free to reach out at{'  '}
+              <a
+                rel="noreferrer"
+                href="mailto:agusruidiaz@hotmail.com?subject=Hello!"
+                target="_blank"
+              >
+                agusruidiaz@hotmail.com
+              </a>{'  '}
+              to connect and start building that dream landing/design!
             </Text>
           </Fade>
         </div>
@@ -190,6 +197,31 @@ const Text = styled.p`
   }
   @media ${devices.laptop} {
     font-size: 18px;
+  }
+  a {
+    text-decoration: none;
+    color: #262626;
+    cursor: pointer;
+    position: relative;
+    transition: all 0.5s;
+    &::after {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      content: '';
+      background-color: #ee0b72;
+      width: 100%;
+      height: 2%;
+      transition: all 0.5s;
+      transform-origin: bottom;
+      z-index: -1;
+    }
+    &:hover:after {
+      height: 100%;
+    }
+    &:hover {
+      color: #ffffff;
+    }
   }
 `;
 
