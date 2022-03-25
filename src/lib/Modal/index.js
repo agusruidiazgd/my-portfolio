@@ -5,9 +5,7 @@ import BtnPrimary from '../../lib/ButtonPrimary'
   import { Link } from 'react-router-dom';
   import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
   import {
-    solid,
-    regular,
-    brands,
+    solid
   } from '@fortawesome/fontawesome-svg-core/import.macro'; 
 
 const Modal = ({ handleClose, show, children, scrollPos }) => {
