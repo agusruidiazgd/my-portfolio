@@ -1,8 +1,9 @@
-import React, { useRef, useEffect, useState } from 'react';
+import React, { useRef, useContext } from 'react';
 import styled from 'styled-components';
 import { animated } from 'react-spring';
 import { use3dEffect } from 'use-3d-effect';
 import { devices } from '../../constants/devices.js';
+import DeviceContext from '../../contexts/DeviceContext';
 
 const ProjectCard = ({
   image,
@@ -15,17 +16,9 @@ const ProjectCard = ({
   chooseProject
 }) => {
   const ref = useRef(null);
-  const [isMobile, setIsMobile] = useState(null)
   const { style, ...mouseHandlers } = use3dEffect(ref);
   const handleShowDetails = () => {chooseProject(); setShowDetails(true);}
-  
-
-  useEffect(() => {
-    const param = window.matchMedia(
-      'only screen and (max-width: 760px)'
-    ).matches;
-    setIsMobile(param);
-  }, []);
+  const { isMobile } = useContext(DeviceContext);
 
   if (isMobile) {
     return (

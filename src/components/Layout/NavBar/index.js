@@ -1,28 +1,28 @@
-import React from 'react'
+import React, { useState, useContext } from 'react';
+import Tabs from './Tabs'
+import Menu from './Menu'
+import Toggle from './Toggle'
+import DeviceContext from '../../../contexts/DeviceContext'
 import styled from 'styled-components';
-import { Link } from 'react-router-dom';
 import { ReactComponent as MainLogo } from '../../../assets/logo-50x50.svg';
+import { Link } from 'react-router-dom';
 
-const links = [
-  { name: 'PORTFOLIO', path: '/portfolio' },
-  { name: 'ABOUT ME', path: '/about' },
-  { name: 'CONTACT', path: '/contact' },
-];
+
 
 const NavBar = () => {
-  
+  const [navToggled, setNavToggled] = useState(false)
+  const { isMobile } = useContext(DeviceContext);
+  const handleNavToggle = () => {
+    setNavToggled(!navToggled)
+  }
+
   return (
     <HeaderNav>
       <Link to="/">
         <MainLogo />
       </Link>
-      <Nav>
-        {links.map((link, index) => (
-          <Link key={`link-${index}`} to={link.path}>
-            {link.name}
-          </Link>
-        ))}
-      </Nav>
+      {isMobile ? <Toggle handleNavToggle={handleNavToggle} /> : <Tabs />}
+      {navToggled && <Menu handleNavToggle={handleNavToggle} />}
     </HeaderNav>
   );
 };
@@ -32,7 +32,7 @@ export default NavBar
 const HeaderNav = styled.header`
   position: sticky;
   top: 0;
-  background-color:#FFFFFF;
+  background-color: #ffffff;
   width: 100%;
   box-sizing: border-box;
   text-align: center;
@@ -45,48 +45,3 @@ const HeaderNav = styled.header`
   z-index: 6;
 `;
 
-const Nav = styled.nav`
-  background-color: transparent;
-  a {
-    text-decoration: none;
-    color: #262626;
-    cursor: pointer;
-    text-transform: uppercase;
-    font-weight: 600;
-    font-family: 'Poppins', sans-serif;
-    font-size: 12px;
-    letter-spacing: 0.1rem;
-    padding: 5px 20px;
-    position: relative;
-    overflow: hidden;
-    transition: all 0.5s;
-    &::before {
-      content: '';
-      background-color: #ff6900;
-      width: 0px;
-      height: 5px;
-      position: absolute;
-      top: 120%;
-      left: 0;
-      transition: all 0.5s;
-    }
-    &::after {
-      content: '';
-      background-color: #ee0b72;
-      width: 0px;
-      height: 5px;
-      position: absolute;
-      top: 120%;
-      right: 0;
-      transition: all 0.5s;
-    }
-    &:hover:before {
-      width: 50%;
-      transform: translateX(100%);
-    }
-    &:hover:after {
-      width: 50%;
-      transform: translateX(-100%);
-    }
-  }
-`;
