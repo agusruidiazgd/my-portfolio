@@ -29,7 +29,7 @@ export const projects = [
     year: 2021,
     company: 'ÜMA Health AI',
     description:
-      'Plataforma de telemedicina, apalancada en Inteligencia Artificial. Diagnósticos inteligentes, clasificador de antecedentes y predicción de enfermedades son algunas de las herramientas que desarrollamos en ÜMA para hacer más eficiente tu experiencia en nuestra plataforma. ',
+      'Telemedicine platform, leveraged on Artificial Intelligence. Smart diagnostics, history classifier and disease prediction are some of the tools developed on this platform. ',
     technologies: 'React Js - React Native - Firebase - Node Js',
     link: '',
     style: {
@@ -64,7 +64,7 @@ export const projects = [
     year: 2021,
     company: 'Superchief Gallery NFT',
     description:
-      'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu ',
+      'NFT gallery with Login system with Metamask. Management of users and profiles. Some tools developed are playlist by user and favorites system.',
     technologies: 'React Js - Gatsby - Contenful - Metamask',
     style: {
       width: '700px',
@@ -88,7 +88,9 @@ export const projects = [
     year: 2020,
     company: 'Blockinar',
     images: [blockinar1, blockinar2, blockinar3, blockinar4],
-    link:'https://blockinar.com/#/en',
+    technologies: 'Vue Js - CSS/SASS - Python',
+    description: 'Technology and healthcare company landing.',
+    link: 'https://blockinar.com/#/en',
     style: {
       width: '300px',
       textHover: '#262626',
@@ -102,6 +104,9 @@ export const projects = [
       'https://noomis-files-hmg.s3.amazonaws.com/content/7e141ed0-4aa1-11eb-9f10-fb32f5038083.jpeg',
     year: 2020,
     company: 'Blockinar',
+    technologies: 'Vue Js - CSS/SASS - Python',
+    description:
+      'Platform to create solutions that facilitate the process of quoting and contracting insurance.',
     images: [tuseguro1, tuseguro2, tuseguro3, tuseguro6, tuseguro4, tuseguro5],
     style: {
       width: '400px',
