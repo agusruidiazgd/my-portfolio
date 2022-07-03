@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components';
 import { devices } from '../../constants/devices.js';
-import resume from '../../assets/resume/AgusRuidiaz-CV.pdf'
+import resume from '../../assets/resume/CV_Agustina _Rudiaz.pdf';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
   regular,
