@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import PortfolioHeader from './PortfolioHeader'
 import ProjectCard from '../../lib/ProjectCard'
 import ProjectModal from './ProjectModal';
+import mixpanel from 'mixpanel-browser';
 import styled from 'styled-components';
 import { projects } from '../../constants/portfolio';
 
@@ -10,6 +11,12 @@ const Portfolio = () => {
   const [showModal, setShowModal]=useState(false)
   const [projectToShow, setProjectToShow]=useState(2)
   const scrollPos = window.scrollY + window.innerHeight/2;
+
+  const onClickProjectHandler = (id) => {
+    console.log('data sent to mixpanel modal');
+    setProjectToShow(id);
+    mixpanel.track('Portfolio', { type: 'open project' });
+  };
   
   return (
     <section>
@@ -33,7 +40,7 @@ const Portfolio = () => {
             subtitle={project.subtitle}
             year={project.year}
             company={project.company}
-            chooseProject={() => setProjectToShow(project.id)}
+            chooseProject={() => onClickProjectHandler(project.id)}
           />
         ))}
       </Wrapper>

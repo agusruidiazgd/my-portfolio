@@ -2,6 +2,7 @@ import React from 'react'
 import Modal from '../../lib/Modal';
 import styled from 'styled-components';
 import { projects } from '../../constants/portfolio';
+import mixpanel from 'mixpanel-browser';
 import { devices } from '../../constants/devices.js';
 
 const ProjectModal = ({
@@ -13,6 +14,11 @@ const ProjectModal = ({
     const showProjectDetails = () =>
       projects.filter((project) => project.id === projectToShow);
     let project = showProjectDetails();
+
+    const onClickHandler = () => {
+      console.log('data sent to mixpanel')
+      mixpanel.track('Portfolio', { type: 'show project' });
+    }
   return (
     <Modal
       show={showModal}
@@ -37,6 +43,7 @@ const ProjectModal = ({
           <Subtitle>Technologies:</Subtitle>
           <Text>{project[0].technologies}</Text>
           <LinkProject href={project[0].link}>Link</LinkProject>
+          <button onClick={onClickHandler}>Mixpanel test</button>
         </Details>
         <ImgWrapper width="100%">
           {project[0].images.slice(2, 4).map((image, index) => (
