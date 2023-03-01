@@ -17,7 +17,7 @@ const NavBar = () => {
   }
 
   return (
-    <HeaderNav>
+    <HeaderNav id="nav">
       <Link to="/">
         <MainLogo />
       </Link>

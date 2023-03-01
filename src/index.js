@@ -5,6 +5,11 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import Layout from './components/Layout';
 import { BrowserRouter } from 'react-router-dom';
+import mixpanel from 'mixpanel-browser';
+
+const mixpanelKey = process.env.REACT_APP_AMPLITUDE_KEY;
+
+mixpanel.init(mixpanelKey, { debug: true });
 
 ReactDOM.render(
   <BrowserRouter>
